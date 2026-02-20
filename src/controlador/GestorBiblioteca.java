@@ -1,4 +1,4 @@
-package controller;
+package controlador;
 public class GestorBiblioteca {
     
 }
