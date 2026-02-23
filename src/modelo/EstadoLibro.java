@@ -1,5 +1,8 @@
 package modelo;
 
-public class EstadoLibro {
-    
+public enum EstadoLibro {
+DISPONIBLE,
+PRESTADO,
+RESERVADO
 }
+
