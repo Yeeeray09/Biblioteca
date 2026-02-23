@@ -31,7 +31,6 @@ if(ISBN==null || ISBN.isEmpty()){
 if(totalCopias<=0){
     throw new IllegalArgumentException("Debe existir una copia al menos");
 }
-
     this.ISBN = ISBN;
     this.titulo = titulo;
     this.autor = autor;
