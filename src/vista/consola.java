@@ -1,5 +1,7 @@
 package vista;
 
+import modelo.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class consola {
@@ -9,23 +11,37 @@ public class consola {
         this.sc = new Scanner(System.in);
     }
 
-    public void mostrarMensaje(String mensaje) {
-        System.out.println(">> " + mensaje);
+    public void mostrarMensaje(String msg) {
+        System.out.println(">> " + msg);
     }
 
-    public String leerTexto(String etiqueta) {
-        System.out.print(etiqueta + ": ");
+    public String leerTexto() {
         return sc.nextLine();
     }
 
-    public int leerEntero(String etiqueta) {
-        System.out.print(etiqueta + ": ");
-        while (!sc.hasNextInt()) {
-            System.out.println("Error: Introduce un número válido.");
-            sc.next();
+    public int leerEntero() {
+        int i = Integer.parseInt(sc.nextLine());
+        return i;
+    }
+
+    public void mostrarCabecera() {
+        System.out.println("BIBLIOTECA");
+
+    }
+
+    public void listarLibros(List<libro> libros) {
+        System.out.println("LISTADO DE LIBROS");
+        for (libro l : libros) {
+            System.out.println("ISBN: " + l.getISBN() + " | " + l.getTitulo() + 
+                               " Disponibles: " + l.getCopiasDisponibles());
         }
-        int numero = sc.nextInt();
-        sc.nextLine(); 
-        return numero;
+    }
+
+    public void listarUsuarios(List<Usuario> usuarios) {
+        System.out.println("LISTADO DE USUARIOS");
+        for (Usuario u : usuarios) {
+            System.out.println("ID: " + u.getIdUsuario() + " | Nombre: " + u.getNombreUsuario() + 
+                               "Activos: " + u.getNumeroPrestamosActivos());
+        }
     }
 }
